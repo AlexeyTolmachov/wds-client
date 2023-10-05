@@ -1,18 +1,30 @@
+
+import React from 'react';
 import './App.css';
-import DynamicRenderingReviews from './components/DynamicRenderingReviews/DynamicRenderingReviews';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
-import StaticSection from './components/StaticSection/StaticSection';
+import HomePage from './components/HomePage';
+import { Route, Routes } from 'react-router';
+import AdminPanel from './components/AdminPanel/AdminPanel';
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <StaticSection />
-      <DynamicRenderingReviews />
-      <Footer />
+
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='admin' element={<AdminPanel />} />
+      </Routes>
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
