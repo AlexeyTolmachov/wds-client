@@ -131,8 +131,7 @@ p {
 }
 
 .column-block-massage:hover {
-  background-color: #007bff;
-  z-index: 5;
+  opacity: 0.5;
 }
 
 .column-block-coding {
@@ -146,8 +145,7 @@ p {
   position: relative;
 }
 .column-block-coding:hover {
-  background-color: #007bff;
-  z-index: 5;
+  opacity: 0.5;
 }
 .column-block-Googles {
   display: flex;
@@ -161,8 +159,7 @@ p {
 }
 
 .column-block-Googles:hover {
-  background-color: #007bff;
-  z-index: 5;
+  opacity: 0.5;
 }
 .column-text {
   padding: 0 10px;
@@ -173,4 +170,61 @@ p {
 
 .column-info {
   font-size: 14px;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1220px) {
+  .content-block {
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    max-width: 440px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    margin: 15px 0;
+    padding: 15px;
+  }
+  .content-block-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+  }
+  .content-block-h {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .content-block-text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .card-block-h {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 20px;
+  }
+  .column-text {
+    padding: 0 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 800px) {
+  .card-block-h {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 10px;
+  }
+  .content-block-h {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .content-block-text {
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 14px;
+  }
 }
