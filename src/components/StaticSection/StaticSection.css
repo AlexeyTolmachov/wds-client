@@ -13,8 +13,8 @@
   max-width: 440px;
   box-sizing: border-box;
   display: flex;
-  justify-content: center; /* Центрирование по горизонтали */
-  align-items: center; /* Центрирование по вертикали */
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   margin: 15px 0px;
 }
@@ -66,16 +66,16 @@
 }
 
 .info-block {
-  display: flex; /* Использовать flexbox для выравнивания элементов внутри блока */
+  display: flex;
   justify-content: flex-start;
-  align-items: center; /* Выравнивание по вертикали по центру */
-  gap: 10px; /* Расстояние между элементами */
+  align-items: center;
+  gap: 10px;
 }
 .image-block img {
-  max-height: 120%; /* Максимальная высота изображения */
-  width: auto; /* Автоматическая ширина для адаптивности */
-  height: auto; /* Автоматическая высота для адаптивности */
-  object-fit: cover; /* Заполнить контейнер с сохранением пропорций */
+  max-height: 120%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
 }
 
 h2 {
@@ -161,7 +161,7 @@ p {
 }
 
 .column-block-Googles:hover {
-  background-color: #007bff; /* Новый цвет фона при наведении (синий) */
+  background-color: #007bff;
   z-index: 5;
 }
 .column-text {

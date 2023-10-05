@@ -71,8 +71,8 @@ li {
   line-height: 24px;
 }
 a {
-  text-decoration: none; /* Убираем подчеркивание */
-  color: inherit; /* Используем цвет, унаследованный от родительского элемента */
+  text-decoration: none;
+  color: inherit;
 }
 .footer-bottom {
   text-align: left;

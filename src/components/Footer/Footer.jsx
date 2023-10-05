@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css"; // Подключаем файл стилей
+import "./Footer.css";
 
 const Footer = () => {
   return (
@@ -64,7 +64,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className="footer-bottom">© 2023 Ваша Компания</p>
+      <p className="footer-bottom">© 2023 Your company</p>
     </footer>
   );
 };

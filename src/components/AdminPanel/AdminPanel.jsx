@@ -14,27 +14,21 @@ const AdminPanel = () => {
   };
 
   const handleFileUpload = () => {
-    // Создать объект FormData и добавить файл
     const formData = new FormData();
     formData.append("csvData", file);
-
     fetch("http://localhost:5000/api/testimonials/upload", {
       method: "POST",
       body: formData,
     })
       .then((response) => {
-        // Обработка ответа
         if (response.ok) {
-          // Файл успешно загружен
-          // Закрыть модальное окно или выполнить другие действия
           setIsModalOpen(false);
           setFile(null);
         } else {
-          // Обработка ошибки
         }
       })
       .catch((error) => {
-        console.error("Произошла ошибка при загрузке файла:", error);
+        console.error("An error occurred while downloading the file:", error);
       });
   };
 
@@ -47,11 +41,10 @@ const AdminPanel = () => {
           setIsModalOpen(false);
           setFile(null);
         } else {
-          // Обработка ошибки
         }
       })
       .catch((error) => {
-        console.error("Произошла ошибка при удалении файла:", error);
+        console.error("An error occurred while deleting the file:", error);
       });
   };
 
@@ -61,17 +54,17 @@ const AdminPanel = () => {
         <div className="modal">
           <div className="modal-content">
             <div className="modal-draggable" onDrop={handleFileDrop}>
-              <h2 className="download-text">Загрузить данные</h2>
+              <h2 className="download-text">Download data</h2>
               {file && (
                 <div>
-                  <p>Выбранный файл: {file.name}</p>
-                  <button onClick={handleFileUpload}>Загрузить</button>
+                  <p>Selected file: {file.name}</p>
+                  <button onClick={handleFileUpload}>Download</button>
                 </div>
               )}
             </div>
             <div className="modal-delete">
-              <h2>Удалить файл</h2>
-              <button onClick={handleFileDelete}>Удалить</button>
+              <h2>Delete a file</h2>
+              <button onClick={handleFileDelete}>Delete</button>
             </div>
           </div>
         </div>
