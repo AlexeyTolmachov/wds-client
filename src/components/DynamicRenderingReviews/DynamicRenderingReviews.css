@@ -1,0 +1,110 @@
+.reviews-container {
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 10vw;
+  background-color: #f5f5f5;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0;
+  background-color: #f5f5f5;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin: 20px 0 40px 0;
+  border: 1px solid white;
+}
+
+.user-photo {
+  width: 50px;
+  height: 50px;
+  margin-right: 30px;
+}
+
+.user-details {
+  flex-grow: 1;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.user-details h2 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.user-rating {
+  display: flex;
+}
+
+.star-filled {
+  color: #ffcc00;
+}
+
+.star-empty {
+  color: #ccc;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.star-filled,
+.star-empty {
+  font-size: 24px;
+}
+
+.Testimonials {
+  text-align: center;
+  padding-top: 70px;
+}
+.infoOfReview {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid #c1c7d0;
+  height: 270px;
+  background-color: white;
+}
+.reviews-container p {
+  margin: 5px;
+}
