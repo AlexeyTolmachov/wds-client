@@ -1,0 +1,79 @@
+.footer {
+  background-color: #434343;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-column {
+  display: flex;
+
+  margin-right: 20px;
+}
+.footer-column-logo {
+  max-width: 312px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 70px;
+  padding: 10px;
+}
+h3 {
+  font-size: 18px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+.link-block {
+  max-width: 312px;
+  margin: 15px 65px;
+  padding: 10px;
+}
+.logo-img {
+  height: 100px;
+  margin-top: 30px;
+  margin-right: 60px;
+}
+.footer-column-logo {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 28px;
+}
+.link-block-title {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 40px;
+}
+
+.link-list {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}
+a {
+  text-decoration: none; /* Убираем подчеркивание */
+  color: inherit; /* Используем цвет, унаследованный от родительского элемента */
+}
+.footer-bottom {
+  text-align: left;
+  margin-left: 280px;
+}
