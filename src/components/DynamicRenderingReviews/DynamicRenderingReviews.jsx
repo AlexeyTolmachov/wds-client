@@ -81,7 +81,7 @@ const DynamicRenderingReviews = () => {
             <div className="user-info">
               <div className="user-photo">
                 <div>
-                  <img src="/Avatar (1).svg" alt="Avatar" />
+                  <img src="/Avatar.svg" alt="Avatar" />
                 </div>
               </div>
               <div className="user-details">

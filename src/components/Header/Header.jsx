@@ -6,7 +6,7 @@ function Header() {
     <header className="header">
       <div className="left-sub-header">
         <div className="logo">
-          <img src="/Logo.svg" alt="Логотип" />
+          <img src="/Logo.svg" alt="Logo" />
         </div>
         <div className="contact">
           <p className="phone-help">Need Help?</p>
