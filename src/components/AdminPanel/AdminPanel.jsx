@@ -4,7 +4,6 @@ import "./AdminPanel.css";
 const AdminPanel = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [file, setFile] = useState(null);
-
   const handleFileDrop = (event) => {
     event.preventDefault();
     const droppedFile = event.dataTransfer.files[0];
@@ -16,7 +15,7 @@ const AdminPanel = () => {
   const handleFileUpload = () => {
     const formData = new FormData();
     formData.append("csvData", file);
-    fetch("http://localhost:5000/api/testimonials/upload", {
+    fetch("http://localhost:5000/api/testimonials/", {
       method: "POST",
       body: formData,
     })
@@ -25,6 +24,7 @@ const AdminPanel = () => {
           setIsModalOpen(false);
           setFile(null);
         } else {
+          console.log("");
         }
       })
       .catch((error) => {
@@ -41,11 +41,34 @@ const AdminPanel = () => {
           setIsModalOpen(false);
           setFile(null);
         } else {
+          console.log("");
         }
       })
       .catch((error) => {
         console.error("An error occurred while deleting the file:", error);
       });
+  };
+
+  const handleLogout = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch("http://localhost:5000/api/admin/logout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        localStorage.removeItem("token");
+        console.log("Logged out successfully");
+      } else {
+        console.error("An error occurred while logging out");
+      }
+    } catch (error) {
+      console.error("An error occurred while logging out:", error);
+    }
   };
 
   return (
@@ -63,8 +86,12 @@ const AdminPanel = () => {
               )}
             </div>
             <div className="modal-delete">
-              <h2>Delete a file</h2>
+              <h2>remove all reviews</h2>
               <button onClick={handleFileDelete}>Delete</button>
+            </div>
+            <div className="modal-logout">
+              <h2>Logout</h2>
+              <button onClick={handleLogout}>Logout</button>
             </div>
           </div>
         </div>
