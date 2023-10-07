@@ -60,7 +60,6 @@ const AuthForm = () => {
     );
 
     if (response.status === 201) {
-      // Clear the input fields
       setUsername("");
       setPassword("");
       console.log("Registered successfully!");

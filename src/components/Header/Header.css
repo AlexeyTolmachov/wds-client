@@ -59,16 +59,11 @@
   position: relative;
 }
 
-.main-menu li:last-child {
-  margin-right: 0;
-}
-
 .main-menu a {
   text-decoration: none;
   color: #252525;
   padding: 9px;
   position: relative;
-  transition: color 0.3s ease;
 }
 
 .main-menu a:hover {
@@ -97,12 +92,13 @@
   display: none;
   position: absolute;
   background-color: #fff;
-  top: calc(100% + 35px);
+  top: 60px;
   left: 0;
   min-width: 200px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   list-style: none;
   padding-left: 0;
+  z-index: 4;
 }
 .sub-menu a::before {
   content: ">";
@@ -159,8 +155,10 @@
   display: none;
 }
 .sub-sub-menu-parent:hover .sub-sub-menu {
-  transition: display 0.9s;
   display: block;
+  transition: display 0.8s ease;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .sub-sub-menu li:last-child {
@@ -189,7 +187,7 @@
   .left-sub-header {
     display: flex;
     flex-direction: column;
-    margin-top: 0px;
+    margin-top: 0;
   }
   .header {
     display: flex;
@@ -205,11 +203,10 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 24px;
-    background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 }
-@media screen and (min-width: 640px) and (max-width: 800px) {
+@media screen and (min-width: 639px) and (max-width: 800px) {
   .main-menu a::after {
     content: "";
     position: absolute;
@@ -269,7 +266,7 @@
     transition: color 0.3s ease;
   }
   .main-menu li {
-    margin-right: 7px;
+    margin-right: 5px;
     position: relative;
   }
 }

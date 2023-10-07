@@ -1,14 +1,11 @@
 import { useNavigate } from "react-router-dom";
-
 import React, { useState } from "react";
 import "./AdminPanel.css";
 
 const AdminPanel = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [file, setFile] = useState(null);
-
   const navigate = useNavigate();
-
   const handleFileDrop = (event) => {
     event.preventDefault();
     const droppedFile = event.dataTransfer.files[0];
@@ -31,7 +28,9 @@ const AdminPanel = () => {
         if (response.ok) {
           setIsModalOpen(false);
           setFile(null);
-          navigate("/");
+          setTimeout(() => {
+            navigate("/");
+          }, 1000);
         } else {
           console.log("");
         }
@@ -40,7 +39,6 @@ const AdminPanel = () => {
         console.error("An error occurred while downloading the file:", error);
       });
   };
-
   const handleFileDelete = () => {
     fetch("http://localhost:5000/api/testimonials/", {
       method: "DELETE",

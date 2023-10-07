@@ -44,6 +44,7 @@
   font-weight: 500;
   font-size: 22px;
   line-height: 40px;
+  margin: 20px;
 }
 .content-block-text {
   font-weight: 400;
@@ -107,6 +108,7 @@ p {
   font-weight: 500;
   font-size: 30px;
   line-height: 46px;
+  margin: 20px;
 }
 
 .massage-img {
@@ -119,7 +121,6 @@ p {
 
 .column-block-massage {
   max-height: 114px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -166,6 +167,7 @@ p {
   font-weight: 500;
   font-size: 18px;
   line-height: 27px;
+  margin: 17px;
 }
 
 .column-info {
@@ -193,38 +195,57 @@ p {
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
+    margin: 10px;
   }
   .content-block-text {
     font-weight: 400;
     font-size: 12px;
-    line-height: 20px;
+    line-height: 18px;
   }
   .card-block-h {
     font-weight: 500;
     font-size: 24px;
-    line-height: 20px;
+    line-height: 18px;
+    margin: 0;
   }
   .column-text {
     padding: 0 10px;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
+    margin: 20px;
   }
 }
 @media screen and (min-width: 640px) and (max-width: 800px) {
   .card-block-h {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 10px;
+    margin: 0;
+    margin-top: 10px;
+  }
+  .massage-img {
+    margin: 4%;
   }
   .content-block-h {
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
   }
+
   .content-block-text {
     font-weight: 200;
     font-size: 14px;
     line-height: 14px;
+  }
+
+  .column-text {
+    padding: 10px;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 17px;
+    margin: 10px;
+  }
+  .card-block img {
   }
 }
