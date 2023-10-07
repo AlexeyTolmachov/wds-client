@@ -37,7 +37,7 @@ const DynamicRenderingReviews = () => {
   const displayedReviews = reviews.slice(startIndex, endIndex);
 
   const pageButtons = [];
-  const visiblePageRange = 3;
+  const visiblePageRange = 1;
 
   for (let i = 1; i <= totalPages; i++) {
     if (

@@ -71,12 +71,12 @@
   justify-content: center;
   align-items: center;
   margin: 30px 0 60px 0;
+  
 }
 
 .pagination button {
   background-color: #ffffff;
   color: #727272;
-  border: none;
   padding: 10px 20px;
   margin: 0 5px;
   border-radius: 30px;

@@ -47,7 +47,6 @@ const AuthForm = () => {
   };
   const handleRegister = async () => {
     if (username === "" || password === "") {
-      // Display an error message to the user
       return;
     }
     const response = await axios.post(
