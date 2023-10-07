@@ -1,40 +1,51 @@
 /* AuthForm.css */
-.container {
-  max-width: 400px;
-  margin: 0 auto;
+.form-wrap {
+  max-width: 800px;
+  max-height: 600px;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 10%;
+  border-radius: 25px;
+  background-color: #434343;
+  color: white;
+  box-shadow: 5px 10px 15px rgba(35, 33, 33, 0.5);
 }
 
 h2 {
   text-align: center;
-}
-
-label {
-  display: block;
-  margin-bottom: 8px;
+  margin: 30px;
 }
 
 input {
-  width: 100%;
+  width: 90%;
   padding: 8px;
-  margin-bottom: 16px;
+  margin: 16px;
   border: 1px solid #ccc;
-  border-radius: 4px;
 }
-
-button {
-  width: 100%;
+label {
+  font-size: 20px;
+}
+.bInput {
+  width: 30%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #5e7ea1;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
+  margin: 25px 60px 25px 60px;
 }
 
 button:hover {
   background-color: #0056b3;
+}
+.logo-input {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px;
+}
+.img-logo {
+  height: 70px;
 }
