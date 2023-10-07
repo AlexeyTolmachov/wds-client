@@ -1,25 +1,29 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 import "./AuthForm.css";
 
-class AuthForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      password: "",
-    };
-  }
+const AuthForm = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  handleInputChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const validateCredentials = () => {
+    return username !== "" && password !== "";
   };
 
-  handleLogin = async () => {
-    const { username, password } = this.state;
+  const handleLogin = async () => {
+    if (!validateCredentials()) {
+      return;
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:5000/api/admin/login",
@@ -29,59 +33,79 @@ class AuthForm extends Component {
         }
       );
 
-      console.log("Logged in:", response.data);
-      localStorage.setItem("token", response.data.token);
+      if (response.status === 200) {
+        localStorage.setItem("token", response.data.token);
+        setIsAuthenticated(true);
+      }
     } catch (error) {
-      console.error("Login error:", error);
+      if (error.response && error.response.status === 401) {
+        console.log("Неправильне ім'я користувача або пароль.");
+      } else {
+        console.error("An error occurred during authorization:", error);
+      }
     }
   };
-
-  handleRegister = async () => {
-    const { username, password } = this.state;
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/admin/register",
-        {
-          username,
-          password,
-          role: "admin",
-        }
-      );
-      console.log("Registered:", response.data);
-    } catch (error) {
-      console.error("Registration error:", error);
+  const handleRegister = async () => {
+    if (username === "" || password === "") {
+      // Display an error message to the user
+      return;
     }
-  };
-
-  render() {
-    return (
-      <div>
-        <h2>Login or Register</h2>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={this.state.username}
-            onChange={this.handleInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleInputChange}
-          />
-        </div>
-        <button onClick={this.handleLogin}>Login</button>
-        <button onClick={this.handleRegister}>Register</button>
-      </div>
+    const response = await axios.post(
+      "http://localhost:5000/api/admin/register",
+      {
+        username,
+        password,
+        role: "admin",
+      }
     );
+
+    if (response.status === 201) {
+      // Clear the input fields
+      setUsername("");
+      setPassword("");
+      console.log("Registered successfully!");
+    } else {
+    }
+  };
+
+  if (isAuthenticated) {
+    return <Navigate to="/admin" />;
   }
-}
+
+  return (
+    <div className="form-wrap">
+      <div className="logo-input">
+        <img className="img-logo" src="/Frame 1.svg" alt="logo" />
+      </div>
+
+      <div>
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+      </div>
+      <button className="bInput" onClick={handleLogin}>
+        Login
+      </button>
+      <button className="bInput" onClick={handleRegister}>
+        Register
+      </button>
+    </div>
+  );
+};
 
 export default AuthForm;

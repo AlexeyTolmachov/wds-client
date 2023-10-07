@@ -61,7 +61,7 @@ const DynamicRenderingReviews = () => {
       (i === 2 && page > visiblePageRange + 2) ||
       (i === totalPages - 1 && page < totalPages - visiblePageRange)
     ) {
-      pageButtons.push(<span key="ellipsis">...</span>);
+      pageButtons.push(<span key={`ellipsis-${i}`}>...</span>);
     }
   }
 

@@ -1,5 +1,5 @@
-import React from 'react';
-import './Footer.css';
+import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
   return (
@@ -55,7 +55,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-column-logo">
-          <img className="logo-img" src="/Frame 1.svg" alt="Логотип" />
+          <img className="logo-img" src="/Frame 1.svg" alt="logo" />
 
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
