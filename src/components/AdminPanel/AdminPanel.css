@@ -27,12 +27,13 @@
 .modal-draggable {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  border: 7px dotted rgb(140, 140, 140);
+  border: 2px solid rgb(105, 105, 105);
   text-align: center;
-  width: 30%;
-  height: 250px;
-  margin: 30px;
+   min-width:180px; 
+  min-height: 100px; 
+  background-color: rgb(198, 198, 198);
+ border-radius: 5px;
+  
 }
 
 .modal-delete {
@@ -49,13 +50,7 @@
   margin: 20% 0;
   z-index: -4;
 }
-.close-icon {
-  font-size: 50px;
-  position: relative;
-  left: 250%;
-  bottom: 40%;
-  cursor: pointer;
-}
+
 
 .modal-logout {
   display: flex;
@@ -79,7 +74,6 @@
 button:hover {
   background-color: #0056b3;
 }
-
 .selected-file {
   display: flex;
   flex-direction: column;
@@ -87,4 +81,13 @@ button:hover {
   width: 150px;
   margin-left: 30px;
   margin-bottom: 90px;
+}
+
+.input{
+  margin:20px 0 ;
+  width: 100%;
+color: black;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 2px solid rgb(99, 99, 99);
 }

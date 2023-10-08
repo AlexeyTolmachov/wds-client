@@ -6,39 +6,40 @@ const AdminPanel = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [file, setFile] = useState(null);
   const navigate = useNavigate();
-  const handleFileDrop = (event) => {
-    event.preventDefault();
-    const droppedFile = event.dataTransfer.files[0];
-    if (droppedFile) {
-      setFile(droppedFile);
+
+  const handleFileSelect = (event) => {
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
     }
   };
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-    navigate("/");
-  };
+
   const handleFileUpload = () => {
-    const formData = new FormData();
-    formData.append("csvData", file);
-    fetch("http://localhost:5000/api/testimonials/", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
-        if (response.ok) {
-          setIsModalOpen(false);
-          setFile(null);
-          setTimeout(() => {
-            navigate("/");
-          }, 1000);
-        } else {
-          console.log("");
-        }
+    if (file) {
+      const formData = new FormData();
+      formData.append("csvData", file);
+      
+      fetch("http://localhost:5000/api/testimonials/", {
+        method: "POST",
+        body: formData,
       })
-      .catch((error) => {
-        console.error("An error occurred while downloading the file:", error);
-      });
+        .then((response) => {
+          if (response.ok) {
+            setIsModalOpen(false);
+            setFile(null);
+            setTimeout(() => {
+              navigate("/");
+            }, 1000);
+          } else {
+            console.log("");
+          }
+        })
+        .catch((error) => {
+          console.error("An error occurred while uploading the file:", error);
+        });
+    }
   };
+
   const handleFileDelete = () => {
     fetch("http://localhost:5000/api/testimonials/", {
       method: "DELETE",
@@ -86,15 +87,13 @@ const AdminPanel = () => {
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <div className="modal-draggable" onDrop={handleFileDrop}>
+            <div className="modal-draggable">
               <h2 className="download-text">Download data</h2>
-              <span className="close-icon" onClick={() => handleModalClose()}>
-                &times;
-              </span>
+              <input className='input' type="file" onChange={handleFileSelect} />
               {file && (
                 <div className="selected-file">
                   <p>Selected file: {file.name}</p>
-                  <button onClick={handleFileUpload}>Download</button>
+                  <button onClick={handleFileUpload}>Upload</button>
                 </div>
               )}
             </div>
